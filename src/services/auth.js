@@ -2,11 +2,21 @@ import api from "../configs/api"
 
 const sendOtp = async (mobile) => {
     try {
-        const response = await api.post("auth/send-otp", {mobile: mobile})
-        return {response}
+        const response = await api.post("auth/send-otp", { mobile: mobile })
+        return { response }
     } catch (error) {
-        return {error}
+        return { error }
     }
 }
 
-export {sendOtp}
+const checkOtp = async (mobile, code) => {
+    try {
+        const response = await api.post("auth/csheck-otp", { mobile, code })
+        // console.log("success");
+        return { response }
+    } catch (error) {
+        return { error }
+    }
+}
+
+export { sendOtp, checkOtp }
