@@ -1,11 +1,12 @@
-import AuthPage from "./pages/AuthPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Router from "./router/Router";
 
 function App() {
   return (
-    <>
-      Mountain shopping
-      <AuthPage />
-    </>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
