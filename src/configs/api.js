@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookie";
 
 const api = axios.create({
     // baseURL: "http://localhost:3400/",
@@ -8,4 +9,13 @@ const api = axios.create({
     }
 })
 
+api.interceptors.request.use((request) => {
+    const accessToken = getCookie("accessToken")
+    if (accessToken) {
+        request.headers["Authorization"] = `bearer ${accessToken}`
+    }
+    return request
+}, (error) => {
+    return Promise.reject(error)
+})
 export default api;
