@@ -8,6 +8,7 @@ import AdminPage from "pages/AdminPage";
 import AuthPage from "pages/AuthPage";
 import PageNotFound from "pages/404";
 import { getProfile } from "../services/user";
+import Loader from "../module/Loader";
 
 function Router() {
   const { data, isLoading, error } = useQuery({
@@ -16,7 +17,7 @@ function Router() {
   });
   console.log({ data, isLoading, error });
 
-  if (isLoading) return <h1>isLoading...</h1>;
+  if (isLoading) return <Loader />
   return (
     <Routes>
       <Route index element={<HomePage />} />
