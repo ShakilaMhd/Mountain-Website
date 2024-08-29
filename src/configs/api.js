@@ -28,7 +28,7 @@ api.interceptors.response.use((response) => {
         originalRequest._retry = true;
 
     const res = await getNewToken()
-    // if (!res?.response) console.log("dont have re");
+    if (!res?.response) return;
     setCookie(res.response.data)
     // console.log(res);
     return api(originalRequest)

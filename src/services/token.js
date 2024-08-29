@@ -1,9 +1,9 @@
 import api from "../configs/api";
-import { getCookie } from "../utils/cookie";
+import { getCookie, setCookie } from "../utils/cookie";
 
 const getNewToken = async () => {
     const refreshToken = getCookie("refreshToken");
-    if (!refreshToken) console.log("dont have refreshToken");
+    if (!refreshToken) return
 
     try {
         const response = await api.post("auth/check-refresh-token", { refreshToken })
@@ -13,4 +13,4 @@ const getNewToken = async () => {
     }
 }
 
-export {getNewToken}
+export { getNewToken }
