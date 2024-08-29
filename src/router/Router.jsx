@@ -10,10 +10,10 @@ import PageNotFound from "pages/404";
 import { getProfile } from "../services/user";
 
 function Router() {
-    const {data, isLoading, error} = useQuery({queryKey: ["profile"], queryFn:getProfile})
-    console.log({ data, isLoading, error });
-    
-    if(isLoading) return <h1>Loading...</h1>
+   const {data, isLoading, error} = useQuery({queryKey: ["profile"], queryFn: getProfile })
+  console.log({ data, isLoading, error });
+  
+  if(isLoading) return <h1>isLoading...</h1>
   return (
     <Routes>
       <Route index element={<HomePage />} />
