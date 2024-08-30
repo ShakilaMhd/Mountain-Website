@@ -8,7 +8,7 @@ import styles from "./CheckOtpForm.module.css"
 
 function CheckOtpForm({ code, setCode, mobile, setStep }) {
   const navigate = useNavigate()
-  const {refetch} = useQuery({queryKey: ["profile"], queryFn: getProfile })
+  const {refetch} = useQuery(["profile"],getProfile)
 
   const submitHandler = async (event) => {
     event.preventDefault();

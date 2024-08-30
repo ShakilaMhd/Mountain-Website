@@ -11,13 +11,10 @@ import { getProfile } from "../services/user";
 import Loader from "../module/Loader";
 
 function Router() {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["profile"],
-    queryFn: getProfile,
-  });
+  const { data, isLoading, error } = useQuery(["profile"], getProfile);
   console.log({ data, isLoading, error });
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
   return (
     <Routes>
       <Route index element={<HomePage />} />

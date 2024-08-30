@@ -31,6 +31,10 @@
   margin-top: 30px;
 }
 
+.form button:disabled {
+  opacity: .1;
+}
+
 .form p {
   background-color: #a62626;
   margin-bottom: 20px;
