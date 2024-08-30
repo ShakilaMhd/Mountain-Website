@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styles from "./CategoryForm.module.css"
+
 
 function CategoryForm() {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
@@ -7,11 +9,11 @@ function CategoryForm() {
   };
 
   const submitHandler = (event) => {
-    event.prevetDefault();
+    event.preventDefault();
     console.log(form);
   };
   return (
-    <form action="" onChange={changeHandler} onSubmit={submitHandler}>
+    <form action="" onChange={changeHandler} onSubmit={submitHandler} className={styles.form}>
       <h3>دسته بندی جدید</h3>
       <label htmlFor="name">اسم دسته بندی</label>
       <input type="text" name="name" id="name" />
