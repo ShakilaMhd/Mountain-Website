@@ -1,8 +1,9 @@
-import api from "configs/api"
-import { getCookie } from "../utils/cookie"
+import api from "../configs/api"
 
-const token = getCookie("accessToken");
 
-const getProfile = () => api.get("user/whoami", {headers: {Authorization: `bearer ${token}`}})
+const getProfile = () => api.get("user/whoami").then(res=> res || false)
 
-export { getProfile }
+const getPosts = () => api.get("post/my")
+const getAllPosts = () => api.get("")
+
+export { getProfile, getPosts, getAllPosts }
